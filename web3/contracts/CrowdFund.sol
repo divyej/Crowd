@@ -37,14 +37,22 @@ contract CrowdFund {
     function donatetocampaign(uint256 _id) public payable {
         uint256 amount =msg.value;
         Campaign storage campaign = campaigns[ _id ];
+
         campaign.donators.push(msg.sender);
         campaign.donations.push(amount);
-        campaign.amountCollected+=amount;
+
         (bool sent,)= payable(campaign.owner).call{value:amount}("");
         if(sent){
             campaign.amountCollected= campaign.amountCollected+amount;
         }
     }
-
-
+    function getdonators(uint256 _id)public view returns (address[] memory, uint256[] memory){
+        return (campaigns[_id].donators,campaigns[_id].donations);
+    }
+    function getCampaigns() public view returns (Campaign[] memory){
+        Campaign[] memory allCampaigns= new Campaign[](campaignsCount);
+        for(uint i=0;i<campaignsCount;i++){
+            allCampaigns[i]=campaigns[i];
+        }
+    }
 }
