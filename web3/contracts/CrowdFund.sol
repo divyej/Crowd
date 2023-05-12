@@ -54,5 +54,6 @@ contract CrowdFund {
         for(uint i=0;i<campaignsCount;i++){
             allCampaigns[i]=campaigns[i];
         }
+        return allCampaigns;
     }
 }
