@@ -9,6 +9,7 @@
     "hardhat": "^2.10.1"
   },
   "dependencies": {
+    "@nomicfoundation/solidity-analyzer-win32-x64-msvc": "^0.1.1",
     "@thirdweb-dev/contracts": "^3",
     "dotenv": "^16.0.3"
   }
