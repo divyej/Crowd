@@ -67,7 +67,7 @@ const CreateCampaign = () => {
                 <FormField
                 labelName="Deadline:"
                 placeholder="DD/MM/YYYY"
-                inputType='date'
+                inputType="date"
                 value={form.deadline}
                 handleChange={(e)=> handleFormChange('deadline',e)}
                 />
@@ -80,7 +80,7 @@ const CreateCampaign = () => {
                 value={form.image}
                 handleChange={(e)=> handleFormChange('image',e)}
                 />
-                <div classNamw='flex justify-center items-center mt-[40px]'>
+                <div className='flex justify-center items-center mt-[40px]'>
                  <CustomButton
                  btnType="submit"
                  title="Submit"
