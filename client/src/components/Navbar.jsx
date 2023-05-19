@@ -28,7 +28,8 @@ const Navbar = () => {
             styles={
                 address? 'bg-[#4ac94d]':'bg-[#4b5264]'
             }
-            handleClick={()=>navigate('/create-campaign')}
+            handleClick={()=>{if (address) navigate('/create-campaign')
+            else connect()}}
           />
           
            <Link to='/profile'>
