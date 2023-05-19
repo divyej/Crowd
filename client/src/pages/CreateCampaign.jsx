@@ -51,8 +51,44 @@ const CreateCampaign = () => {
                 value={form.description}
                 handleChange={(e)=> handleFormChange('description',e)}
               />
-              <div className='w-full justify-start items-center p-4 bg-['
-            </div>
+              </div>
+              <div className='w-full flex justify-center items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px]'>
+                <img src={money} alt="money" className='w-[40px] h-[40px] object-contain'/>
+                <h4 className='font-epilogue font-bold text-[25px] text-white ml-[20px]'>You will get the full raised amount</h4>
+              </div>
+              <div className='flex flex-wrap gap-[40px]'>
+                <FormField
+                labelName="Goal:"
+                placeholder="Eth 0.02"
+                inputType='text'
+                value={form.target}
+                handleChange={(e)=> handleFormChange('target',e)}
+                />
+                <FormField
+                labelName="Deadline:"
+                placeholder="DD/MM/YYYY"
+                inputType='date'
+                value={form.deadline}
+                handleChange={(e)=> handleFormChange('deadline',e)}
+                />
+
+              </div>
+              <FormField
+                labelName="Upload Image"
+                placeholder="Upload Image"
+                inputType='url'
+                value={form.image}
+                handleChange={(e)=> handleFormChange('image',e)}
+                />
+                <div classNamw='flex justify-center items-center mt-[40px]'>
+                 <CustomButton
+                 btnType="submit"
+                 title="Submit"
+                 styles="bg-[#1dc071]"
+                 />
+
+                </div>
+            
         </form>
     </div>
   )
