@@ -4,8 +4,9 @@ import { Form, useNavigate } from 'react-router-dom'
 import { ethers } from 'ethers'
 import { money } from '../assets'
 import CustomButton from '../components/customButton.jsx'
+import Loader from '../components/loader'
 import {checkIfImage} from '../utils/index.js'
-import {useStateContext} from '../context'
+import {useStateContext} from '../context/index.jsx'
 import FormField from '../components/FormField.jsx'
 const CreateCampaign = () => {
     const navigate = useNavigate()
@@ -15,6 +16,7 @@ const CreateCampaign = () => {
         name:'',
         title:'',
         description:'',
+        target:'',
         deadline:'', 
         image:''   
     })
@@ -26,7 +28,7 @@ const CreateCampaign = () => {
         checkIfImage(form.image,async(exists)=>{
             if(exists){
                 setIsLoading(true)
-                await createCampaign({...form, target:ethers.utils.parseEther(form.target,18)})
+                await createCampaign({...form, target:ethers.utils.parseUnits(form.target,18)})
                 setIsLoading(false)
                 navigate('/')
             }
@@ -38,6 +40,7 @@ const CreateCampaign = () => {
     }
   return (
     <div className='bg-[#1c1c24] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4'>
+        {isLoading && <Loader />}
         <div className='flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3a3a43] rounded-[10px]'>
             <h1 className='font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-white'>Start Campaign</h1>
         </div>
