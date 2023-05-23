@@ -62,6 +62,8 @@ const getUserCampaigns=async()=>{
             contract,
             connect,
             createCampaign: publishCampaign,
+            getCampaigns,
+            getUserCampaigns
         }}>{children}
         </StateContext.Provider>   
     )
