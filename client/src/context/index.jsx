@@ -31,6 +31,12 @@ catch (error) {
         console.log("contract call failure", error)
 }
   }
+  const getCampaigns=async()=>{
+    const campaigns = await contract.call(getCampaigns)
+     
+  }
+
+
     return(
         <StateContext.Provider value={{address,
             contract,
