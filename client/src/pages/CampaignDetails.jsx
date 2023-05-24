@@ -3,7 +3,7 @@ import React from 'react'
 import { useLocation,useNavigate } from 'react-router-dom'
 import {ethers} from 'ethers'
 import { useStateContext } from '../context'
-import {customButton,Loader} from '../components'
+//import {customButton,Loader} from '../components'
 import { calculateBarPercentage,daysLeft } from '../utils'
 import {thirdweb} from '../assets'
 
@@ -13,12 +13,12 @@ const CampaignDetails = () => {
     const {donate,getDonations,contract,address}=useStateContext()
     const [isLoading,setIsLoading]=React.useState(false)
     const [amount,setAmount]=React.useState('')
-    const [donations,setDonations]=React.useState([])
+    const [donators,setDonators]=React.useState([])
     const remainingDays=daysLeft(state.deadline)
 
     const fetchDonators= async()=>{
         const data = await getDonations(state.pId)
-        setDonations(data)
+        setDonators(data)
     }
 useEffect(()=>{
     if(contract) fetchDonators()
@@ -42,7 +42,11 @@ const handleDonate=async()=>{
                 </div>
             </div>
         </div>
-        
+        <div className='flex md:w-[150px] w-full flex-wrap justify-between '>
+            <CountBox title="Days Left" value={remainingDays}/>
+            <CountBox title={`Raised of ${state.target}`} value={state.amountCollected}/>
+            <CountBox title="Total Backers" value={donators.length}/>
+            </div>
         </div>
     </div>
   )
