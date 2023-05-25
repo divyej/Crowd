@@ -6,7 +6,7 @@ const DisplayCampaigns = ({title,isLoading,campaigns}) => {
 
     const navigate = useNavigate()
     const handleNavigate=(campaign)=>{
-        navigate(`/campaign-details/${campaign.title}`,{state:campaign})
+        navigate(`/campaign-details/${campaign.title}`,{state: campaign})
     }
     
   return (
@@ -14,7 +14,12 @@ const DisplayCampaigns = ({title,isLoading,campaigns}) => {
         <h1 className='font-epilogue font-semibold text-[18px] text-white text-left'>{title}</h1>
         <div className='flex flex-wrap gap-[25px] mt-[20px]'>
             {isLoading && <Loader />}
-            {!isLoading && campaigns.length>0 && campaigns.map((campaign,i)=><FundCards key={campaign.id} {...campaign} handleClick={()=>handleNavigate(campaign) }
+            {!isLoading && campaigns.length>0 && campaigns.map((campaign)=>
+            <FundCards 
+            key={campaign.id} 
+            {...campaign}
+             handleClick={()=>handleNavigate(campaign)
+             }
             />)}
 
           
