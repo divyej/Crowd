@@ -46,7 +46,7 @@ const handleDonate=async()=>{
                 </div>
             </div>
         </div>
-        <div className='flex-1 md:w-[150px] w-full flex-wrap justify-center '>
+        <div className='flex md:w-[150px] w-full flex-wrap md:flex-col justify-center gap-[20px] '>
             <CountBox title="Days Left" value={remainingDays}/>
             <CountBox title={`Raised of ${state.target}`} value={state.amountCollected}/>
             <CountBox title="Total Backers" value={donators.length}/>
@@ -111,7 +111,7 @@ const handleDonate=async()=>{
                             btnType='button'
                             title='Back this project'
                             handleClick={handleDonate}
-                            styles='w-full bg-[#8c6dfd'
+                            styles='w-full bg-[#8c6dfd]'
                             />
                     </div>
                 </div>
