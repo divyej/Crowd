@@ -66,7 +66,16 @@ const Navbar = () => {
 
         </li>))}
             </ul>
-            
+            <div className='flex mx-4'>
+                <CustomButton
+                btnType='button'
+                title={address? 'create campaign':'connect'}
+                styles={address? 'bg-[#4ac94d]':'bg-[#4b5264]'}
+                handleClick={()=>{if (address) navigate('/create-campaign')
+                else connect()}
+                }
+                />
+            </div>
         </div>
         </div>
   )
